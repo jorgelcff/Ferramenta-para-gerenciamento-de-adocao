@@ -6,7 +6,7 @@ def menu_principal():
     print("1. Gerenciamento de Adoção de Animais")
     print("2. Gerenciamento de Clientes")
     print("3. Pet Shop")
-    print("4. Veterinário")
+    print("4. Voluntariado")
     print("5. Sair")
 
 def main():
@@ -27,9 +27,9 @@ def main():
             os.system("cls")
             pet_shop.main()
         elif op == '4':
-            import veterinario.init as veterinario
+            import voluntariado.init as voluntariado
             os.system("cls")
-            veterinario.main()
+            voluntariado.main()
         elif op == '5':
             print("Saindo do sitema... ")
             break
