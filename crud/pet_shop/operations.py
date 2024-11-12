@@ -1,7 +1,6 @@
 import json
 import os
 import pet_shop.init as pet_shop
-pet_shop.main()
 
 DATA_FILE_PATH = os.path.join(os.path.dirname(__file__), "data.json")
 
@@ -121,4 +120,48 @@ def venda_planos():
             else:
                 print("Agradecemos a preferência, até a próxima!")
 
-                
+def gerar_id_unico(dados):
+    if not dados:
+        return 1  
+    else:
+        maior_id = max(produto["id"] for produto in dados)
+        return maior_id + 1
+
+def adicionar_produto(nome, tipo, preco):
+    dados = carregar_dados()
+    novo_id = gerar_id_unico(dados) 
+    novo_produto = {
+        "id": novo_id,
+        "nome": nome,
+        "tipo": tipo,
+        "preço": preco
+    }
+    dados.append(novo_produto)
+    salvar_dados(dados)
+    print(f"Produto cadastrado com sucesso! ID: {novo_id}")
+
+def listar_produto():
+    dados = carregar_dados()
+    if not dados: 
+        print("Nenhum produto encontrado.")
+        return
+    for produto in dados:
+        print(f"ID: {produto['id']} - Nome: {produto['nome']} - Tipo: {produto['tipo']} - Preço {produto['preço']}")
+
+def atualizar_produto(id, novo_nome, novo_tipo, novo_preco):
+    dados = carregar_dados()
+    for produto in dados:
+        if produto["id"] == id:
+            produto["nome"] = novo_nome
+            produto["tipo"] = novo_tipo
+            produto["preço"] = novo_preco 
+            salvar_dados(dados)
+            print("Produto atualizado com sucesso!")
+            return
+    print("Produto não encontrado.")
+
+def deletar_produto(id):
+    dados = carregar_dados()
+    dados = [produto for produto in dados if produto["id"] != id]
+    salvar_dados(dados)
+    print("Produto removido com sucesso!")

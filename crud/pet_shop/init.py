@@ -1,16 +1,12 @@
-from pet_shop.operations import venda_produtos, venda_servicos, venda_pacotes, venda_planos
+from pet_shop.operations import venda_produtos, venda_servicos, venda_pacotes, venda_planos, adicionar_produto, listar_produto, atualizar_produto, deletar_produto
 print("===== PET SHOP - Cesar's Animal Hub =====")
-
-acumulador_1 = 0  # Acumulador para produtos
-acumulador_2 = 0  # Acumulador para serviços
-acumulador_3 = 0  # Acumulador para pacotes especiais
-acumulador_4 = 0  # Acumulador para planos de saúde
 
 def main():
     while True:
         print("\nEscolha uma opção:")
         print("1. Vendas")
-        print("2. Cadastro de produtos/serviços")
+        print("2. Cadastro de produtos")
+        print("3. Voltar para página principal")
         
         op_geral = input("qual a opção desejada? ")
         
@@ -21,9 +17,9 @@ def main():
             print("4. Planos de Saúde")
             print("5. Voltar para página inicial")
 
-            op = input("Escolha a opção: ")
+            op_vendas = input("Escolha a opção: ")
 
-            if op == '1':
+            if op_vendas == '1':
                 print(">>>> Produtos disponíveis <<<<")
                 print("1. Ração para cães e gatos - R$ 50,00")
                 print("2. Petiscos variados - R$ 20,00")
@@ -33,7 +29,7 @@ def main():
 
                 venda_produtos()
 
-            elif op == '2':
+            elif op_vendas == '2':
                 print(">>>> Serviços disponíveis <<<<")
                 print("1. Banho e tosa - R$ 50,00")
                 print("2. Consulta veterinária - R$ 100,00")
@@ -43,7 +39,7 @@ def main():
 
                 venda_servicos()
 
-            elif op == '3':
+            elif op_vendas == '3':
                 print(">>>> Nossos Pacotes Especiais <<<<")
                 print("1. Pacote de Banho Mensal - R$ 150,00")
                 print("2. Pacote de Tosa Completa - R$ 200,00")
@@ -52,7 +48,7 @@ def main():
 
                 venda_pacotes()
 
-            elif op == '4':
+            elif op_vendas == '4':
                 print(">>>> Nossos Planos de Saúde <<<<")
                 print("1. Plano Básico - R$ 100,00/mês")
                 print("2. Plano Intermediário - R$ 150,00/mês")
@@ -61,7 +57,7 @@ def main():
 
                 venda_planos()
 
-            elif op == '5':
+            elif op_vendas == '5':
                 print("Voltando ao Menu Principal...")
                 break  
 
@@ -69,5 +65,41 @@ def main():
                 print("Opção inválida. Por favor, escolha uma opção válida.")
         
         elif op_geral == '2':
-            print("cadastro")
+            print("1. Adicionar produto")
+            print("2. Listar produto")
+            print("3. Atualizar produto")
+            print("4. Deletar produto")
+            print("5. Voltar a página inicial")
+
+            op_cadastro = int(input("Qual a opção desejada? "))
+
+            if op_cadastro == '1':
+                nome = input("Digite o nome do produto: ")
+                tipo = input("Digite o tipo do produto: ")
+                preco = input("Digite o preço do produto: ")
+                adicionar_produto(nome, tipo, preco)
+            
+            elif op_cadastro == '2':
+                listar_produto()
+            
+            elif op_cadastro == '3':
+                id = int(input("Digite o ID do produto a ser atualizado: "))
+                novo_nome = input("Digite o novo nome do produto: ")
+                novo_tipo = input("Digite a novo tipo do produto: ")
+                novo_preco = input("Digite a novo preço do produto: ")
+                atualizar_produto(id, novo_nome, novo_tipo, novo_preco)
+            
+            elif op_cadastro == '4':
+                id = int(input("Digite o ID do produto a ser deletado: "))
+                deletar_produto(id)
+
+            elif op_cadastro == '5':
+                print("Voltando ao menu principal...")
+                break
+
+            else:
+                print("Opção inválida! Tente novamente.")
+
+
+
 
