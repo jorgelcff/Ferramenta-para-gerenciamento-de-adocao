@@ -1,27 +1,29 @@
-from voluntariado.operations import adicionar_voluntario, adicionar_voluntario_veterinario, listar_voluntario, listar_veterinario, deletar_veterinario, deletar_voluntario
+from voluntariado.operations import adicionar_voluntario, adicionar_voluntario_veterinario, listar_voluntario, listar_veterinario, deletar_veterinario, deletar_voluntario, atualizar_voluntario, atualizar_veterinario
 import os 
 
 def menu_voluntariado():
-    print("===== Venha fazer parte do nosso time =====")
-    print("1. Cadastro pessoa voluntaria")
-    print("2. Cadastro veterinario voluntario")
-    print("3. Listar pessoas voluntarias e seus dias")
-    print("4. Listar veterinarios voluntarios e seus dias")
-    print("5. buscar pessoa voluntaria")
-    print("6. buscar veterinario voluntario")
-    print("7. Remover pessoa voluntaria")
-    print("8. Remover veterinario voluntario")
-    print("9. Voltar ao Menu Principal")
+    print("===== Venha fazer parte do nosso time!! =====")
+    print("1. Cadastro para voluntário geral")
+    print("2. Cadastro para voluntário médico")
+    print("3. Listar voluntário geral e seus dias")
+    print("4. Listar voluntário médico e seus dias")
+    print("5. Atualizar voluntário geral")
+    print("6. Atualizar voluntário médico")
+    print("7. buscar voluntário geral")
+    print("8. buscar voluntário médico")
+    print("9. Remover voluntário geral")
+    print("10. Remover voluntário médico")
+    print("11. Voltar ao Menu Principal")
 
 def main():
     while True:
         menu_voluntariado()
-        op = input("Escolha a opção: ")
+        op = input("Escolha uma das opções: ")
         if op == '1':
             nome = input("Digite seu nome: ")
-            idade = input("Digite sua idade ")
+            idade = int(input("Digite sua idade "))
             if idade <18:
-                print("infelizmente não estamos aceitando voluntarios menores de idade no momento, agradecemos por querer ajudar 🥰 ")
+                print("Infelizmente não estamos aceitando voluntários menores de idade no momento, agradecemos por querer ajudar!! 🥰 ")
                 break
             contato = input("Digite seu email para contato:")
             mes = input("Digite a quantidade de vezes que podera comparecer para ser voluntario no mês")
@@ -32,23 +34,38 @@ def main():
             contato = input("Digite seu email para contato:")
             especialidade = input("Digite sua expecialidade:")
             dia = input("Digite o dia que podera atender:")
-            horario = input("digite o horario que poderá atender:")
-            adicionar_voluntario_veterinario(nome, contato, especialidade, dia, horario)
+            adicionar_voluntario_veterinario(nome, contato, especialidade, dia)
         elif op == '3':
             listar_voluntario()
         elif op == '4':
             listar_veterinario()
         elif op =='5':
-            
+            id = int(input("Digite o ID do voluntário a ser atualizado: "))
+            novo_nome = input("Digite o novo nome do voluntário: ")
+            nova_idade = input("Digite a nova idade do voluntário: ")
+            novo_contato = input("Digite a nova personalidade do voluntário: ")
+            novo_mes = input("Digite a nova situação de saúde do voluntário: ")
+            atualizar_voluntario(id, novo_nome, nova_idade, novo_contato, novo_mes)
+
         elif op =='6':
+            id = int(input("Digite o ID do veterinário a ser atualizado: "))
+            novo_nome = input("Digite o novo nome do veterinário: ")
+            nova_idade = input("Digite a nova idade do veterinário: ")
+            novo_contato = input("Digite o contato do veterinário: ")
+            novo_mes = input("Digite a nova situação de saúde do veterinário: ")
+            atualizar_veterinario(id, novo_nome, nova_idade, novo_contato, novo_mes)
+             
+        elif op =='7':
             
-        elif op == '7':
+        elif op =='8':
+            
+        elif op == '9':
                 id = int(input("Digite o ID do voluntario a ser deletado: "))
                 deletar_voluntario(id)
-        elif op == '8':
+        elif op == '10':
                 id = int(input("Digite o ID do veterinario a ser deletado: "))
                 deletar_veterinario(id)
-        elif op == '9':
+        elif op == '11':
             print("Voltando ao menu principal...")
             break
 
