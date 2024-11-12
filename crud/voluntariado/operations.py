@@ -113,10 +113,10 @@ def deletar_voluntario(id):
     dados = carregar_dados()
     dados = [voluntario for voluntario in dados if voluntario["id"] != id]
     salvar_dados(dados)
-    print("Voluntário removido 😢")
+    print("Voluntário(a) removido(a) 😢")
 def deletar_veterinario(id):
     dados = carregar_dados()
     dados = [veterinario for veterinario in dados if veterinario["id"] != id]
     salvar_dados(dados)
-    print("Veterinário removido 😢")
+    print("Veterinário(a) removido(a) 😢")
     
