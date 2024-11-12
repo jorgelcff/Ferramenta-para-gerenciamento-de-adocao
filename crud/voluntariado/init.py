@@ -1,18 +1,18 @@
-from voluntariado.operations import adicionar_voluntario, adicionar_voluntario_veterinario, listar_voluntario, listar_veterinario, deletar_veterinario, deletar_voluntario, atualizar_voluntario, atualizar_veterinario
+from voluntariado.operations import adicionar_voluntario, adicionar_voluntario_veterinario, listar_voluntario, listar_veterinario, atualizar_voluntario, atualizar_veterinario, buscar_voluntario, buscar_veterinario, deletar_veterinario, deletar_voluntario
 import os 
 
 def menu_voluntariado():
     print("===== Venha fazer parte do nosso time!! =====")
-    print("1. Cadastro para voluntário geral")
-    print("2. Cadastro para voluntário médico")
-    print("3. Listar voluntário geral e seus dias")
-    print("4. Listar voluntário médico e seus dias")
-    print("5. Atualizar voluntário geral")
-    print("6. Atualizar voluntário médico")
-    print("7. buscar voluntário geral")
-    print("8. buscar voluntário médico")
-    print("9. Remover voluntário geral")
-    print("10. Remover voluntário médico")
+    print("1. Cadastro para voluntário(a) geral")
+    print("2. Cadastro para voluntário(a) médico(a)")
+    print("3. Listar voluntário(a) geral")
+    print("4. Listar voluntário(a) médico(a)")
+    print("5. Atualizar voluntário(a) geral")
+    print("6. Atualizar voluntário(a) médico(a)")
+    print("7. buscar voluntário(a) geral")
+    print("8. buscar voluntário(a) médico(a)")
+    print("9. Remover voluntário(a) geral")
+    print("10. Remover voluntário(a) médico(a)")
     print("11. Voltar ao Menu Principal")
 
 def main():
@@ -21,19 +21,19 @@ def main():
         op = input("Escolha uma das opções: ")
         if op == '1':
             nome = input("Digite seu nome: ")
-            idade = int(input("Digite sua idade "))
+            idade = int(input("Digite sua idade: "))
             if idade <18:
-                print("Infelizmente não estamos aceitando voluntários menores de idade no momento, agradecemos por querer ajudar!! 🥰 ")
+                print("Infelizmente não estamos aceitando voluntário(a)s menores de idade no momento, agradecemos por querer ajudar!! 🥰 ")
                 break
-            contato = input("Digite seu email para contato:")
-            mes = input("Digite a quantidade de vezes que podera comparecer para ser voluntario no mês")
+            contato = input("Digite seu melhor email para contato:")
+            mes = input("Digite a quantidade de vezes que poderá comparecer para ser voluntário no mês: ")
             adicionar_voluntario(nome, idade, contato, mes)
             
         elif op =='2':
             nome = input("Digite seu nome: ")
-            contato = input("Digite seu email para contato:")
-            especialidade = input("Digite sua expecialidade:")
-            dia = input("Digite o dia que podera atender:")
+            contato = input("Digite seu melhor email para contato: ")
+            especialidade = input("Digite sua expecialidade: ")
+            dia = input("Digite o dia que poderá atender: ")
             adicionar_voluntario_veterinario(nome, contato, especialidade, dia)
         elif op == '3':
             listar_voluntario()
@@ -44,7 +44,7 @@ def main():
             novo_nome = input("Digite o novo nome do voluntário: ")
             nova_idade = input("Digite a nova idade do voluntário: ")
             novo_contato = input("Digite a nova personalidade do voluntário: ")
-            novo_mes = input("Digite a nova situação de saúde do voluntário: ")
+            novo_mes = input("Digite a nova disponibilidade do voluntário: ")
             atualizar_voluntario(id, novo_nome, nova_idade, novo_contato, novo_mes)
 
         elif op =='6':
@@ -52,18 +52,22 @@ def main():
             novo_nome = input("Digite o novo nome do veterinário: ")
             nova_idade = input("Digite a nova idade do veterinário: ")
             novo_contato = input("Digite o contato do veterinário: ")
-            novo_mes = input("Digite a nova situação de saúde do veterinário: ")
-            atualizar_veterinario(id, novo_nome, nova_idade, novo_contato, novo_mes)
+            novo_dia = input("Digite novo dia de disponibilidade do veterinário: ")
+            atualizar_veterinario(id, novo_nome, nova_idade, novo_contato, novo_dia)
              
         elif op =='7':
-            
+             nome = input("Digite o nome do(a) voluntário(a) que você deseja encontrar: ")
+             buscar_voluntario(nome=nome)
+             
         elif op =='8':
+            nome = input("Digite o nome do(a) voluntário(a) que você deseja encontrar: ")
+            buscar_veterinario(nome=nome)
             
         elif op == '9':
-                id = int(input("Digite o ID do voluntario a ser deletado: "))
+                id = int(input("Digite o ID do(a) voluntário(a) a ser deletado(a): "))
                 deletar_voluntario(id)
         elif op == '10':
-                id = int(input("Digite o ID do veterinario a ser deletado: "))
+                id = int(input("Digite o ID do(a) veterinário(a) a ser deletado(a): "))
                 deletar_veterinario(id)
         elif op == '11':
             print("Voltando ao menu principal...")

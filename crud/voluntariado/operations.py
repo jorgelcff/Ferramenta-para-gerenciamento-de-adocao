@@ -34,7 +34,7 @@ def adicionar_voluntario(nome,idade, contato, mes):
     }
     dados.append(novo_voluntario)
     salvar_dados(dados)
-    print(f"Obrigado por se prestar a nos ajudar 🥰! ID: {novo_id}")
+    print(f"Agradecemos pela sua disponibilidade em nos ajudar 🥰! ID: {novo_id}")
 def adicionar_voluntario_veterinario(nome,contato, especialidade, dia):
     dados = carregar_dados()
     novo_id = gerar_id_unico(dados) 
@@ -47,20 +47,20 @@ def adicionar_voluntario_veterinario(nome,contato, especialidade, dia):
     }
     dados.append(novo_veterinario)
     salvar_dados(dados)
-    print(f"Obrigado por querer ajudar nossos pets 🥰! ID: {novo_id}")
+    print(f"Agradecemos por querer ajudar nossos pets 🥰! ID: {novo_id}")
 
 def listar_voluntario():
     dados = carregar_dados()
     if not dados: 
-        print("Nenhum voluntario encontrado.")
+        print("Nenhum(a) voluntário(a) encontrado(a).")
         return
     for voluntario in dados:
-        print(f"ID: {voluntario['id']} - Nome: {voluntario['nome']}, Idade: {voluntario['idade']}")
+        print(f"ID: {voluntario['id']} - Nome: {voluntario['nome']}, Idade: {voluntario['idade']}, Mes: {voluntario['mes']}")
 
 def listar_veterinario():
     dados = carregar_dados()
     if not dados: 
-        print("Nenhum voluntario encontrado.")
+        print("Nenhum(a) voluntário(a) encontrado(a).")
         return
     for veterinario in dados:
         print(f"ID: {veterinario['id']} - Nome: {veterinario['nome']}, Especialidade{veterinario['especialidade']}, Dia{veterinario['dia']}")
@@ -74,31 +74,40 @@ def atualizar_voluntario(id, novo_nome, nova_idade, novo_contato, novo_mes):
             voluntatio["contato"] = novo_contato
             voluntatio["mes"] = novo_mes 
             salvar_dados(dados)
-            print("Voluntário atualizado com sucesso!")
+            print("Voluntário(a) atualizado(a) com sucesso!")
             return
-    print("Voluntário não encontrada.")
+    print("Voluntário(a) não encontrada.")
 
-def atualizar_veterinario(id, novo_nome, nova_idade, novo_contato, novo_mes):
+def atualizar_veterinario(id, novo_nome, nova_idade, novo_contato, novo_dia):
     dados = carregar_dados()
     for veterinario in dados:
         if  veterinario["id"] == id:
             veterinario["nome"] = novo_nome
             veterinario["idade"] = nova_idade
             veterinario["contato"] = novo_contato
-            veterinario["mes"] = novo_mes   
+            veterinario["dia"] = novo_dia   
             salvar_dados(dados)
-            print("Veterinário atualizado com sucesso!")
+            print("Veterinário(a) atualizado(a) com sucesso!")
             return
-    print("Veterinário não encontrado.")
+    print("Veterinário(a) não encontrado(a).")
 
 def buscar_voluntario(nome):
     dados = carregar_dados()
     resultados = [voluntario for voluntario in dados if voluntario["nome"].lower() == nome.lower()]
     if resultados:
         for voluntario in resultados:
-            print(f"ID: {voluntario['id']} - Nome: {voluntario['nome']}, Espécie: {voluntario['especie']}, Raça: {voluntario['raca']}, Idade: {voluntario['idade']}, Personalidade: {voluntario['personalidade']}, Saúde: {voluntario['situacao_saude']}")
+            print(f"ID: {voluntario['id']} - Nome: {voluntario['nome']}, Idade: {voluntario['idade']}, Contato: {voluntario['contato']}, Mes: {voluntario['mes']}")
     else:
-        print(f"Voluntário com nome '{nome}' não encontrado.")
+        print(f"Voluntário(a) com nome '{nome}' não encontrado(a).")
+
+def buscar_veterinario(nome):
+    dados = carregar_dados()
+    resultados = [veterinario for veterinario in dados if veterinario["nome"].lower() == nome.lower()]
+    if resultados:
+        for veterinario in resultados:
+            print(f"ID: {veterinario['id']} - Nome: {veterinario['nome']}, Idade: {veterinario['idade']}, Contato: {veterinario['contato']}, Dia: {veterinario['dia']}")
+    else:
+        print(f"Veterinário(a) com nome '{nome}' não encontrado(a).")
 
 def deletar_voluntario(id):
     dados = carregar_dados()
