@@ -11,17 +11,12 @@ def carregar_dados():
     except (FileNotFoundError, json.JSONDecodeError):
         return []
 
-
 def salvar_dados(dados):
     with open(DATA_FILE_PATH, "w", encoding="utf-8") as file:
         json.dump(dados, file, indent=4)
 
-acumulador_1 = 0
-acumulador_2 = 0
-acumulador_3 = 0
-acumulador_4 = 0 
-
 def venda_produtos():
+            acumulador_1 = 0
             op_produto = input("Escolha o produto desejado: ")
             match op_produto:
                 case '1': 
@@ -48,6 +43,7 @@ def venda_produtos():
                 print("Agradecemos a preferência, até a próxima!")
 
 def venda_servicos():
+            acumulador_2 = 0 
             op_servico = input("Escolha o serviço desejado: ")
             match op_servico:
                 case '1': 
@@ -74,6 +70,7 @@ def venda_servicos():
                 print("Agradecemos a preferência, até a próxima!")
 
 def venda_pacotes():
+            acumulador_3 = 0
             op_pacote = input("Escolha o pacote desejado: ")
             match op_pacote:
                 case '1': 
@@ -91,12 +88,13 @@ def venda_pacotes():
             acumulador_3 = acumulador_3 + valor
             print("O valor acumulado dos pacotes especiais é: R$", acumulador_3)
             resposta_3 = input("\nDeseja continuar comprando? (S/N) ")
-            if resposta_3.lower() == 's':
+            if resposta_3.lower() == 'S':
                   pet_shop.main()
             else:
                 print("Agradecemos a preferência, até a próxima!")
 
 def venda_planos():
+            acumulador_4 = 0
             op_plano = input("Escolha um plano de saúde adequado para o seu Pet: ")
             match op_plano:
                 case '1': 
@@ -111,11 +109,10 @@ def venda_planos():
                 case '4': 
                         meses = int(input("Deseja contratar quantos meses de serviço? "))
                         valor = 300 * meses
-
             acumulador_4 = acumulador_4 + valor
             print("O valor acumulado dos planos de saúde é: R$", acumulador_4)
             resposta_4 = input("\nDeseja continuar comprando? (S/N) ")
-            if resposta_4.lower() == 's':
+            if resposta_4.lower() == 'S':
                 pet_shop.main()
             else:
                 print("Agradecemos a preferência, até a próxima!")
