@@ -48,7 +48,7 @@ def listar_produto():
         print("Nenhum produto encontrado.")
         return
     for produto in dados:
-        print(f"ID: {produto['id']} - Nome: {produto['nome']}, - Tipo: {produto['tipo']}, - Preço {produto['preço']}")
+        print(f"ID: {produto['id']} - Nome: {produto['nome']}, - Tipo: {produto['tipo']}, - Preço: {produto['preco']}")
 
 def atualizar_produto(id, novo_nome, novo_tipo, novo_preco):
     dados = carregar_dados()
