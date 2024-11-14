@@ -7,3 +7,10 @@ crud/adocao/__pycache__/init.cpython-312.pyc
 crud/adocao/__pycache__/operations.cpython-312.pyc
 crud/cliente/__pycache__/init.cpython-312.pyc
 crud/cliente/__pycache__/operations.cpython-312.pyc
+crud/voluntariado/pycache/*
+*.pyc
+*.pyc
+*.pyc
+*.pyc
+/crud/adocao/__pycache__
+/crud/adocao/__pycache__
