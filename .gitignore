@@ -14,3 +14,7 @@ crud/voluntariado/pycache/*
 *.pyc
 /crud/adocao/__pycache__
 /crud/adocao/__pycache__
+crud/adocao/pycache/*
+crud/pet_shop/pycache/*
+crud/veterinario/__pycache__/init.cpython-312.pyc
+/crud/pet_shop/__pycache__
