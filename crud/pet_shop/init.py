@@ -1,6 +1,8 @@
 from pet_shop.operations import venda_produtos, adicionar_produto, listar_produto, atualizar_produto, deletar_produto
+from pet_shop.operations import venda_produtos, adicionar_produto, listar_produto, atualizar_produto, deletar_produto
 print("===== PET SHOP - Cesar's Animal Hub =====")
 
+def menu_geral():
 def menu_geral():
     print("\nEscolha uma opção:")
     print("1. Vendas")
@@ -51,6 +53,11 @@ def main():
             elif op_cadastro == '5':
                 print("Voltando ao menu principal...")
                 break
+
+            else:
+                print("Opção inválida! Tente novamente.")
+
+
 
             else:
                 print("Opção inválida! Tente novamente.")
