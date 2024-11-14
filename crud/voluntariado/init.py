@@ -30,14 +30,14 @@ def main():
                     print("Infelizmente não estamos aceitando voluntário(a)s menores de idade no momento, agradecemos por querer ajudar!! 🥰 ")
                     break
                 contato = input("Digite seu melhor email para contato:")
-                mes = input("Digite a quantidade de vezes que poderá comparecer para ser voluntário(a) no mês: ")
+                mes = int(input("Digite a quantidade de vezes que poderá comparecer para ser voluntário(a) no mês: "))
                 adicionar_voluntario(nome, idade, contato, mes)
             
             elif op =='2':
                 nome = input("Digite seu nome: ")
                 contato = input("Digite seu melhor email para contato: ")
                 especialidade = input("Digite sua especialidade: ")
-                dia = input("Digite o dia que poderá atender: ")
+                dia = int(input("Digite o dia que poderá atender: "))
                 
                 adicionar_voluntario_veterinario(nome, contato, especialidade, dia)
                 
@@ -52,7 +52,7 @@ def main():
                 novo_nome = input("Digite o novo nome do voluntário(a): ")
                 nova_idade = input("Digite a nova idade do voluntário(a): ")
                 novo_contato = input("Digite o novo contato do(a) voluntário(a): ")
-                novo_mes = input("Digite a nova disponibilidade (quantas vezes poderá ajudar no mês) do(a) voluntário(a): ")
+                novo_mes = int(input("Digite a nova disponibilidade (quantas vezes poderá ajudar no mês) do(a) voluntário(a): "))
                 
                 atualizar_voluntario(id, novo_nome, nova_idade, novo_contato, novo_mes)
 
@@ -61,7 +61,7 @@ def main():
                 novo_nome = input("Digite o novo nome do(a) veterinário(a): ")
                 nova_idade = input("Digite a nova idade do(a) veterinário(a): ")
                 novo_contato = input("Digite o contato do(a) veterinário(a): ")
-                novo_dia = input("Digite o novo dia de disponibilidade do(a) veterinário(a): ")
+                novo_dia = int(input("Digite o novo dia de disponibilidade do(a) veterinário(a): "))
                 
                 atualizar_veterinario(id, novo_nome, nova_idade, novo_contato, novo_dia)
              
