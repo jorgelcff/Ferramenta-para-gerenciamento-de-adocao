@@ -1,3 +1,4 @@
+
 [
     {
         "id": 1,
@@ -28,6 +29,65 @@
         "nome": "Cama",
         "tipo": "Conforto",
         "preco": "R$ 80,00"
+    },
+    {
+        "id": 6,
+        "nome": "Banho",
+        "tipo": "Serviço",
+        "preco": "R$ 50,00"
+    },
+    {
+        "id": 7,
+        "nome": "Consulta veterinária",
+        "tipo": "Serviço",
+        "preco": "R$ 100,00"
+    },
+    {
+        "id": 8,
+        "nome": "Vacinação",
+        "tipo": "Serviço",
+        "preco": "R$ 180,00"
+    },
+    {
+        "id": 9,
+        "nome": "Adestramento",
+        "tipo": "Serviço",
+        "preco": "R$ 150,00"
+    },
+    {
+        "id": 10,
+        "nome": "Hotel para pets",
+        "tipo": "Serviço",
+        "preco": "R$ 80,00/noite"
+    },
+    {
+        "id": 11,
+        "nome": "Pacote Banho Mensal",
+        "tipo": "Serviço Especial",
+        "preco": "R$ 150,00"
+    },
+    {
+        "id": 12,
+        "nome": "Pacote Tosa Completa",
+        "tipo": "Serviço Especial",
+        "preco": "R$ 200,00"
+    },
+    {
+        "id": 13,
+        "nome": "Pacote Saúde Completo (Consulta + Vacinação)",
+        "tipo": "Serviço Especial",
+        "preco": "R$ 250,00"
+    },
+    {
+        "id": 14,
+        "nome": "Pacote Adestramento",
+        "tipo": "Serviço Especial",
+        "preco": "R$ 70,00"
+    },
+    {
+        "id": 15,
+        "nome": "Plano de Saúde",
+        "tipo": "Serviço Especial",
+        "preco": "R$ 200,00/mensal"
     }
-
 ]
