@@ -15,8 +15,62 @@ def salvar_dados(dados):
     with open(DATA_FILE_PATH, "w", encoding="utf-8") as file:
         json.dump(dados, file, indent=4)
 
+def gerar_id_unico(dados):
+    if not dados:
+        return 1  
+    else:
+        maior_id = max(produto["id"] for produto in dados)
+        return maior_id + 1
+
+def gerar_id_unico(dados):
+    if not dados:
+        return 1  
+    else:
+        maior_id = max(produto["id"] for produto in dados)
+        return maior_id + 1
+
+def adicionar_produto(nome, tipo, preco):
+    dados = carregar_dados()
+    novo_id = gerar_id_unico(dados) 
+    novo_produto = {
+        "id": novo_id,
+        "nome": nome,
+        "tipo": tipo,
+        "preço": preco
+    }
+    dados.append(novo_produto)
+    salvar_dados(dados)
+    print(f"Produto cadastrado com sucesso! ID: {novo_id}")
+
+def listar_produto():
+    dados = carregar_dados()
+    if not dados: 
+        print("Nenhum produto encontrado.")
+        return
+    for produto in dados:
+        print(f"ID: {produto['id']} - Nome: {produto['nome']}, - Tipo: {produto['tipo']}, - Preço {produto['preço']}")
+
+def atualizar_produto(id, novo_nome, novo_tipo, novo_preco):
+    dados = carregar_dados()
+    for produto in dados:
+        if produto["id"] == id:
+            produto["nome"] = novo_nome
+            produto["tipo"] = novo_tipo
+            produto["preço"] = novo_preco 
+            salvar_dados(dados)
+            print("Produto atualizado com sucesso!")
+            return
+    print("Produto não encontrado.")
+
+def deletar_produto(id):
+    dados = carregar_dados()
+    dados = [produto for produto in dados if produto["id"] != id]
+    salvar_dados(dados)
+    print("Produto removido com sucesso!")
+
 def venda_produtos():
-            acumulador_1 = 0
+        acumulador_1 = 0
+        while True:
             op_produto = input("Escolha o produto desejado: ")
             match op_produto:
                 case '1': 
@@ -43,7 +97,8 @@ def venda_produtos():
                 print("Agradecemos a preferência, até a próxima!")
 
 def venda_servicos():
-            acumulador_2 = 0 
+        acumulador_2 = 0
+        while True: 
             op_servico = input("Escolha o serviço desejado: ")
             match op_servico:
                 case '1': 
@@ -64,13 +119,16 @@ def venda_servicos():
             acumulador_2 = acumulador_2 + valor
             print("O valor acumulado dos serviços é: R$", acumulador_2)
             resposta_2 = input("\nDeseja continuar comprando? (S/N) ")
-            if resposta_2.lower() == 's':
-                  pet_shop.main()
-            else:
+            if resposta_2.lower() == 'S':
+                pet_shop.main()
+                break
+            elif resposta_2.lower() == 'N':
                 print("Agradecemos a preferência, até a próxima!")
+                break
 
 def venda_pacotes():
-            acumulador_3 = 0
+        acumulador_3 = 0
+        while True:
             op_pacote = input("Escolha o pacote desejado: ")
             match op_pacote:
                 case '1': 
@@ -116,49 +174,3 @@ def venda_planos():
                 pet_shop.main()
             else:
                 print("Agradecemos a preferência, até a próxima!")
-
-def gerar_id_unico(dados):
-    if not dados:
-        return 1  
-    else:
-        maior_id = max(produto["id"] for produto in dados)
-        return maior_id + 1
-
-def adicionar_produto(nome, tipo, preco):
-    dados = carregar_dados()
-    novo_id = gerar_id_unico(dados) 
-    novo_produto = {
-        "id": novo_id,
-        "nome": nome,
-        "tipo": tipo,
-        "preço": preco
-    }
-    dados.append(novo_produto)
-    salvar_dados(dados)
-    print(f"Produto cadastrado com sucesso! ID: {novo_id}")
-
-def listar_produto():
-    dados = carregar_dados()
-    if not dados: 
-        print("Nenhum produto encontrado.")
-        return
-    for produto in dados:
-        print(f"ID: {produto['id']} - Nome: {produto['nome']} - Tipo: {produto['tipo']} - Preço {produto['preço']}")
-
-def atualizar_produto(id, novo_nome, novo_tipo, novo_preco):
-    dados = carregar_dados()
-    for produto in dados:
-        if produto["id"] == id:
-            produto["nome"] = novo_nome
-            produto["tipo"] = novo_tipo
-            produto["preço"] = novo_preco 
-            salvar_dados(dados)
-            print("Produto atualizado com sucesso!")
-            return
-    print("Produto não encontrado.")
-
-def deletar_produto(id):
-    dados = carregar_dados()
-    dados = [produto for produto in dados if produto["id"] != id]
-    salvar_dados(dados)
-    print("Produto removido com sucesso!")

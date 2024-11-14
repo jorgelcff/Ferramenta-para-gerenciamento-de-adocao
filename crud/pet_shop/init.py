@@ -1,31 +1,32 @@
 from pet_shop.operations import venda_produtos, venda_servicos, venda_pacotes, venda_planos, adicionar_produto, listar_produto, atualizar_produto, deletar_produto
 print("===== PET SHOP - Cesar's Animal Hub =====")
 
+def menu_geral():
+    print("\nEscolha uma opção:")
+    print("1. Vendas")
+    print("2. Cadastro de produtos")
+    print("3. Voltar para página principal")
+
+def menu_vendas():
+    print("1. Produtos")
+    print("2. Serviços")
+    print("3. Pacotes Especiais")
+    print("4. Planos de Saúde")
+    print("5. Voltar para página inicial")
+
 def main():
     while True:
-        print("\nEscolha uma opção:")
-        print("1. Vendas")
-        print("2. Cadastro de produtos")
-        print("3. Voltar para página principal")
-        
-        op_geral = input("qual a opção desejada? ")
+        menu_geral()
+        op_geral = input("Qual a opção desejada? ")
         
         if op_geral == '1':
-            print("1. Produtos")
-            print("2. Serviços")
-            print("3. Pacotes Especiais")
-            print("4. Planos de Saúde")
-            print("5. Voltar para página inicial")
-
+            menu_vendas()
             op_vendas = input("Escolha a opção: ")
 
             if op_vendas == '1':
                 print(">>>> Produtos disponíveis <<<<")
-                print("1. Ração para cães e gatos - R$ 50,00")
-                print("2. Petiscos variados - R$ 20,00")
-                print("3. Brinquedos interativos - R$ 35,00")
-                print("4. Coleiras e guias - R$ 15,00")
-                print("5. Camas e casinhas - R$ 80,00")
+                
+                listar_produto()
 
                 venda_produtos()
 

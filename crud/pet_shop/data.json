@@ -1,0 +1,33 @@
+[
+    {
+        "id": 1,
+        "nome": "Ração",
+        "tipo": "Alimento",
+        "preco": "R$ 50,00"
+    },
+    {
+        "id": 2,
+        "nome": "Petisco",
+        "tipo": "Alimento",
+        "preco": "R$ 20,00"
+    },
+    {
+        "id": 3,
+        "nome": "Brinquedos",
+        "tipo": "Objeto",
+        "preco": "R$ 35,00"
+    },
+    {
+        "id": 4,
+        "nome": "Coleira",
+        "tipo": "Acessório",
+        "preco": "R$ 35,00"
+    },
+    {
+        "id": 2,
+        "nome": "Cama",
+        "tipo": "Conforto",
+        "preco": "R$ 80,00"
+    }
+
+]
