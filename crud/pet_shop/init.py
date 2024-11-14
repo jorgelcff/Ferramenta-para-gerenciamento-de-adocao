@@ -54,13 +54,9 @@ def main():
 
             else:
                 print("\nOpção inválida! Tente novamente.")
-        elif op_geral == 3:
-            print("\nVoltando ao menu principal...")
-            break
         else:
-            print("\nOpção inválida! Tente novamente.")
+            print("\nVoltando ao menu principal... ")
             break
-
 
 
 

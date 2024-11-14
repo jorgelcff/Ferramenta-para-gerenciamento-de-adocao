@@ -9,7 +9,7 @@ def menu_principal():
 def main():
     while True:
         menu_principal()
-        op = input("Escolha a opção desejada: ")
+        op = input("\nEscolha a opção desejada: ")
 
         if op == '1':
             import adocao.init as adocao
