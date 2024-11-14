@@ -55,7 +55,7 @@ def listar_voluntario():
         print("Nenhum(a) voluntário(a) encontrado(a).")
         return
     for voluntario in dados:
-        print(f"ID: {voluntario['id']} - Nome: {voluntario['nome']}, Idade: {voluntario['idade']}, Mes: {voluntario['mes']}")
+        print(f"ID: {voluntario['id']} - Nome: {voluntario['nome']}, Contato: {voluntario['contato']}, Idade: {voluntario['idade']}, Mes: {voluntario['mes']}")
 
 def listar_veterinario():
     dados = carregar_dados()
@@ -63,7 +63,7 @@ def listar_veterinario():
         print("Nenhum(a) voluntário(a) encontrado(a).")
         return
     for veterinario in dados:
-        print(f"ID: {veterinario['id']} - Nome: {veterinario['nome']}, Especialidade{veterinario['especialidade']}, Dia{veterinario['dia']}")
+        print(f"ID: {veterinario['id']} - Nome: {veterinario['nome']}, Contato: {veterinario['contato']},  Especialidade: {veterinario['especialidade']}, Dia{veterinario['dia']}")
         
 def atualizar_voluntario(id, novo_nome, nova_idade, novo_contato, novo_mes):
     dados = carregar_dados()
