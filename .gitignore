@@ -21,3 +21,8 @@ crud/veterinario/__pycache__/init.cpython-312.pyc
 crud/adocao/__pycache__/init.cpython-312.pyc
 /crud/adocao/__pycache__
 /crud/adocao/__pycache__
+*.pyc
+*.pyc
+/crud/pet_shop/__pycache__
+/crud/pet_shop/__pycache__
+*.pyc
